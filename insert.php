@@ -3,7 +3,7 @@
 	$uname= $_REQUEST['uname'];
 	$msg= $_REQUEST['msg'];
 
-	$con = mysqli_connect('localhost','root','','chatbox');
+	//$con = mysqli_connect('localhost','root','','chatbox');
 	
 
 /*	mysqli_query("INSERT INTO logs ('username' , 'msg') VALUES ('$uname','$msg')");
@@ -21,12 +21,13 @@
 
 	$conn=mysqli_connect('localhost','root','','chatbox');
 
-			$sql="insert into logs(username,msg) values ('{$uname}','{$msg}')";
-			$q1= "SELECT * FROM logs ORDER by id DESC";
-			
-		$result1 = mysqli_query($conn,$q1);
-
-		while ($row=mysqli_fetch_assoc($result1)){
+			$sql="insert into logs(username,msg) values('{$uname}','{$msg}')";
+			$q1= "SELECT * FROM logs ORDER by id DESC";	
+		
+		$result1 = mysqli_query($conn,$sql);
+		$result2 = mysqli_query($conn,$q1);
+		
+	while ($row=mysqli_fetch_assoc($result2)){
 			echo $row['username'] . ": " . $row['msg'] . "<br>";
 	}
 				

@@ -22,6 +22,8 @@
 					alert('You Need To Fill all Fields');
 					return;
 				}
+				form1.uname.readOnly = true;
+				form1.uname.style.border = 'none';
 				var uname= form1.uname.value;
 				var msg = form1.msg.value;
 
@@ -49,7 +51,7 @@
 				<tbody>
 					<tr>
 						<td width="200px"><h2><i><font color="Red">Freelance</font></i></h2></td>
-						<td width="90px"><a href = "home.php">Profile</a></td>
+						<td width="90px"><a href = "profile.php">Profile</a></td>
 						<td width="90px"><a href = "messages.php">Messages</a></td>
 						<td width="90px"><a href = "earning.php">Earnings</a></td>
 						<td width="100px"><a href ="notifi.php">Notifications</a></td>
@@ -57,7 +59,7 @@
 						<td width="90px"><a href = "balance.php">Show Balance</a><br>
 						<td><a href="SellerHome.php"><img src="a.jpg" width="40px" height="40px"></a>
 						<br>
-						<a href = "logout.php"><h3>LogOut</h3></a></td>
+						<a href = "LogOut.php"><h3>LogOut</h3></a></td>
 					</tr>
 					
 					 <tr>
@@ -77,9 +79,40 @@
 						</td>
 
 					</tr>
-					</table>
+					
 	          </tbody>
-			</table>
+			</table >
+			<table border="1">
+				<thead>
+		<tr aign="right">
+			<th>User list</th>
+		</tr>
+	</thead>
+
+	<tbody align="right" >
+          	   <?php
+          	  $conn=mysqli_connect('localhost','root','','chatbox');
+			$sql="select username from logs";
+			$get=mysqli_query($conn,$sql);
+			
+   if(count($get)>0){
+	while ($user=mysqli_fetch_assoc($get)) {
+	
+	?>
+					<tr>
+						<td><?php echo $user["username"];?></td>
+					</tr>
+
+
+    <?php
+    		}
+    	}
+	
+	?>	
+</tbody>
+</table>
+
+				</tbody>
 		</form>
 	</center>
 </body>

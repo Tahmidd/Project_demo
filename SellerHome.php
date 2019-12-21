@@ -17,7 +17,7 @@ if(isset($_COOKIE['uname'])){
 				<tbody>
 					<tr>
 						<td width="200px"><h2><i><font color="Red">Freelance</font></i></h2></td>
-						<td width="50px"><a href = "home.php">Profile</a></td>
+						<td width="50px"><a href = "profile.php">Profile</a></td>
 						<td width="90px"><a href = "messages.php">Messages</a></td>
 						<td width="90px"><a href = "earning.php">Earnings</a></td>
 						<td width="100px"><a href ="notifi.php">Notifications</a></td>
