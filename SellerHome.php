@@ -10,8 +10,15 @@ if(isset($_COOKIE['uname'])){
 	<head>
 		<title>HomePage </title>
 	</head>
+
+	<script type="text/javascript">
+		function updatepicture(pic){
+			document.getElementById("image").setAttribute("src",pic);
+		}
+	</script>
 	
 	<body>
+		<form id="form" method="post" action="upload.php" enctype="multipart/form-data" target="iframe">
 		<center>
 			<table border="0">
 				<tbody>
@@ -38,7 +45,15 @@ if(isset($_COOKIE['uname'])){
 						<p> Bangladesh </p></center>
 						</td>
 						<td colspan="7" align="center"> <h1><u> Upload Work </u></h1> <br>
-						<p> <b>Upload your works here</b> </p>
+						<input type="file" id="file" name="file" /> 
+						<input type="submit" name="submit" id="submit" value="Upload File"/>
+						<br><br>
+						<p id="message">Upload Message will go Here.</p>
+						<img style="min-height: 120; min-width: 200; max-height: 120px;" id="image" /><br>
+						<br>
+
+						<iframe style="display: none;" name="iframe" ></iframe>
+						
 						</td>
 					</tr>
 					
@@ -55,7 +70,7 @@ if(isset($_COOKIE['uname'])){
 						<td colspan="1" style="border-top:2px solid #888;"></td>
 						<td colspan="6">  <br> </td>
 					</tr>
-					
+
 					<tr rowspan="1">
 						<td colspan="1"> </td>
 						<td><b><font size="+2">Reviews</font></b><br><p>Show reviews</p></td>
@@ -64,6 +79,7 @@ if(isset($_COOKIE['uname'])){
 					</tbody>
 				</table>
 			</center>
+		</form>
 		</body>
 
 
